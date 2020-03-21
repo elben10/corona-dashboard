@@ -100,9 +100,10 @@ def load_population():
     else:
         if not os.path.exists("data"):
             os.mkdir("data")
-        FILE_TO_EXTRACT = "API_SP.POP.TOTL_DS2_en_csv_v2_821007.csv"
         r = httpx.get(POPULATION_URL)
         zipfile_ = zipfile.ZipFile(BytesIO(r.content))
+
+        FILE_TO_EXTRACT = [i for i in zipfile_.namelist() if i.startswith("API_SP.POP.TOTL_DS2_en_csv")][0]
 
         df = pd.read_csv(
             BytesIO(zipfile_.read(FILE_TO_EXTRACT)),
