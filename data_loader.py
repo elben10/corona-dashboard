@@ -80,7 +80,7 @@ def get_country_options():
 
 def get_url(date):
     date_str = date.strftime("%Y-%m-%d")
-    return f"https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-{date_str}.xls"
+    return f"https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-{date_str}.xlsx"
 
 
 def load_iso3_codes():
